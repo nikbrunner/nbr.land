@@ -1,0 +1,28 @@
+---
+const { pathname } = Astro.url;
+export const isActivePath = (path: string) => pathname === path;
+
+const pathes = [
+  {
+    path: "/",
+    label: "Home",
+  },
+  {
+    path: "/dev",
+    label: "Dev",
+  },
+];
+---
+
+<nav class="nav">
+  {
+    pathes.map((path) => (
+      <a
+        href={path.path}
+        class={`${isActivePath(path.path) ? "text-blue-500" : ""}`}
+      >
+        {path.label}
+      </a>
+    ))
+  }
+</nav>

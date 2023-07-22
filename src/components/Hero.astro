@@ -1,0 +1,88 @@
+---
+import { ROUTES } from "../routes";
+
+// Remove Homepath ("/") from routes
+const filteredRoutes = ROUTES.filter((route) => route.path !== "/");
+---
+
+<div class="Hero dark-mode">
+  <div class="content">
+    <h1>nbr.haus</h1>
+    <nav>
+      {
+        filteredRoutes.map((route) => {
+          return (
+            <div class="link">
+              <a class={route.closed ? "closed-route" : ""} href={route.path}>
+                {route.name}
+              </a>
+              {route.closed ? <span>Closed due renovation</span> : ""}
+            </div>
+          );
+        })
+      }
+    </nav>
+  </div>
+</div>
+
+<style>
+  .Hero {
+    position: relative;
+    background-image: url("https://media.discordapp.net/attachments/1014928965959417857/1133006405834637432/nb84_A_mono-chromatic_minimalistic_vector_illustration_of_a_hou_e73b0962-14a2-48f6-9af8-127f458eaec7.png?width=2626&height=1648");
+    background-position: center;
+    background-size: cover;
+    height: 75vh;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+
+  .Hero .content {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-bg-dimmed-more);
+    box-shadow: 0 0 3rem hsl(0, 0%, 0%, 0.35);
+    backdrop-filter: blur(5px) grayscale(0.5);
+    border: 1px solid var(--color-fg-dimmed-more);
+    padding: 1rem 3rem 2rem;
+  }
+
+  .Hero h1 {
+    font-size: 8rem;
+    font-weight: 100;
+    margin: 0;
+    color: var(--color-fg);
+    margin-bottom: 1rem;
+  }
+
+  .Hero nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    min-width: 15vw;
+    gap: var(--space-2);
+  }
+
+  .link a {
+    color: var(--color-fg);
+    text-decoration: none;
+    font-weight: var(--font-weight-thin);
+    font-size: var(--space-6);
+    transition: color var(--transition-time-fast) ease-in-out;
+  }
+  .link a.closed-route {
+    color: var(--color-fg-dimmed);
+    cursor: not-allowed;
+  }
+
+  .link span {
+    font-size: 0.65rem;
+    color: var(--color-fg-dimmed-more);
+  }
+</style>
