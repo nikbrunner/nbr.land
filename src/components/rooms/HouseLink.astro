@@ -1,0 +1,77 @@
+---
+import type { Route, RouteState } from "../../types/routes";
+
+interface Props {
+  route: Route;
+}
+
+const { route } = Astro.props;
+
+const routeStateClassMap: {
+  [key in RouteState]: string;
+} = {
+  open: "HouseLink--open",
+  closed: "HouseLink--closed"
+};
+
+const routeAnnotationMap: {
+  [key in RouteState]: string;
+} = {
+  open: "Open",
+  closed: "Closed due renovation"
+};
+---
+
+<div class={`HouseLink ${routeStateClassMap[route.state]}`}>
+  <a class="HouseLink__name" href={route.path}>
+    {route.name}
+  </a>
+  <span class="HouseLink__annotation">
+    {routeAnnotationMap[route.state]}
+  </span>
+</div>
+
+<style lang="scss">
+  .HouseLink {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-1);
+    cursor: pointer;
+
+    &__name,
+    &__annotation {
+      transition: color var(--transition-time-fast) ease-in-out;
+    }
+
+    &__name {
+      color: var(--color-fg);
+      text-decoration: none;
+      font-weight: var(--font-weight-thin);
+      font-size: var(--font-size-6);
+      letter-spacing: var(--letter-spacing-2);
+      white-space: nowrap;
+    }
+
+    &__annotation {
+      font-size: var(--font-size-1);
+      color: var(--color-fg-dimmed-more);
+    }
+
+    &--open {
+      &:hover {
+        .HouseLink__name {
+          color: var(--color-fg-accent);
+        }
+
+        .HouseLink__annotation {
+          color: var(--color-fg-dimmed);
+        }
+      }
+    }
+
+    &--closed .HouseLink__name {
+      color: var(--color-fg-dimmed);
+      cursor: not-allowed;
+    }
+  }
+</style>

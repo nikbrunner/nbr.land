@@ -1,0 +1,29 @@
+.colorscheme-default.colormode-light {
+  /* Background Colors */
+
+  --color-bg: hsl(0, 0%, 90%);
+  --color-bg-light: hsl(0, 0%, 95%);
+  --color-bg-dark: hsl(0, 0%, 85%);
+
+  /* Foreground Colors */
+  --color-fg: hsl(25, 5%, 15%);
+  --color-fg-light: hsl(25, 5%, 30%);
+  --color-fg-dark: hsl(25, 5%, 7%);
+
+  --color-fg-accent: hsl(211, 65%, 45%);
+  --color-fg-accent-light: hsl(211, 65%, 60%);
+}
+
+.colorscheme-default.colormode-dark {
+  /* Background Colors */
+  --color-bg: hsl(0, 0%, 10%);
+  --color-bg-light: hsl(0, 0%, 15%);
+  --color-bg-dark: hsl(0, 0%, 5%);
+
+  /* Foreground Colors */
+  --color-fg: hsl(0, 0%, 90%);
+  --color-fg-dark: hsl(0, 0%, 70%);
+  --color-fg-light: hsl(0, 0%, 95%);
+
+  --color-fg-accent: hsl(226, 68%, 52%);
+}

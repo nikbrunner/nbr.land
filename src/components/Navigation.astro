@@ -1,28 +1,137 @@
 ---
-const { pathname } = Astro.url;
-export const isActivePath = (path: string) => pathname === path;
+import type { Route } from "../types/routes";
 
-const pathes = [
-  {
-    path: "/",
-    label: "Home",
-  },
-  {
-    path: "/dev",
-    label: "Dev",
-  },
-];
+interface Props {
+  routes: Route[];
+}
+
+const { routes = [] } = Astro.props;
+const { pathname } = Astro.url;
+
+export const isActivePath = (currentPath: string, path: string) => currentPath === path;
 ---
 
-<nav class="nav">
-  {
-    pathes.map((path) => (
-      <a
-        href={path.path}
-        class={`${isActivePath(path.path) ? "text-blue-500" : ""}`}
-      >
-        {path.label}
-      </a>
-    ))
-  }
+<script>
+  const navBar = document.querySelector(".Navigation");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY === 0) {
+      navBar?.classList.remove("Navigation--scrolled");
+    } else if (window.scrollY > 50) {
+      navBar?.classList.add("Navigation--scrolled");
+    }
+  });
+</script>
+
+<nav class:list={["Navigation"]}>
+  <div class="Navigation__innerWrapper">
+    <div class="Navigation__nav">
+      <div class="Navigation__logo">
+        <a href="/"><h1><span>nbr</span>.haus</h1></a>
+      </div>
+      <div class="Navigation__links">
+        {
+          routes.map(route => (
+            <a
+              href={route.path}
+              class:list={[
+                "Navigation__link",
+                {
+                  "Navigation__link--active": isActivePath(pathname, route.path),
+                  "Navigation__link--open": route.state === "open",
+                  "Navigation__link--closed": route.state === "closed"
+                }
+              ]}
+            >
+              {route.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </nav>
+
+<style lang="scss">
+  .Navigation {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    flex-direction: column;
+
+    background: var(--color-transparent);
+    color: var(--color-fg);
+    transition: all var(--transition-time-medium) ease-in-out;
+
+    font-family: var(--font-family-monospace);
+    z-index: 1000;
+
+    &__innerWrapper {
+      display: flex;
+      flex-direction: column;
+      padding: var(--spacing-5) 0;
+
+      margin: 0 15vw;
+    }
+
+    &__nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__logo {
+      user-select: none;
+
+      h1 {
+        font-size: var(--font-size-6);
+        font-weight: var(--font-weight-thin);
+        line-height: var(--line-height-0);
+        margin: 0;
+
+        span {
+          font-weight: var(--font-weight-bold);
+        }
+      }
+
+      p {
+        font-size: var(--font-size-1);
+        margin-left: 0.1rem;
+      }
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-8);
+    }
+
+    &__link {
+      line-height: var(--line-height-0);
+      font-size: var(--font-size-3);
+      font-weight: var(--font-weight-bold);
+
+      &--open {
+        color: var(--color-fg);
+
+        &:hover {
+          text-underline-offset: var(--spacing-2);
+          text-decoration-line: underline;
+          text-decoration-style: dashed;
+          text-decoration-thickness: var(--border-width-3);
+        }
+      }
+
+      &--closed {
+        color: var(--color-fg-adapt-50);
+      }
+    }
+
+    &--scrolled {
+      background: var(--color-bg-adapt-50);
+      backdrop-filter: blur(5px);
+      //   border-bottom: var(--border-width-1) solid var(--color-fg-adapt-50);
+    }
+  }
+</style>
