@@ -1,39 +1,29 @@
-type RoutePathName =
-  | "/"
-  | "/office"
-  | "/gallery"
-  | "/studio"
-  | "/library"
-  | "/404";
-
-export interface Route {
-  path: RoutePathName;
-  name: string;
-  closed?: boolean;
-}
+import type { Route } from "../types/routes";
 
 export const ROUTES: Route[] = [
   {
     path: "/",
     name: "Home",
+    state: "open"
   },
   {
     path: "/office",
     name: "The Office",
+    state: "open"
   },
   {
     path: "/gallery",
     name: "The Gallery",
-    closed: true,
+    state: "closed"
   },
   {
     path: "/studio",
     name: "The Studio",
-    closed: true,
+    state: "closed"
   },
   {
     path: "/library",
     name: "The Library",
-    closed: true,
-  },
+    state: "closed"
+  }
 ];
