@@ -1,10 +1,4 @@
-type RoutePathName =
-  | "/"
-  | "/office"
-  | "/gallery"
-  | "/studio"
-  | "/library"
-  | "/404";
+type RoutePathName = "/" | "/office" | "/gallery" | "/studio" | "/library" | "/404";
 
 export interface Route {
   path: RoutePathName;
@@ -15,25 +9,25 @@ export interface Route {
 export const ROUTES: Route[] = [
   {
     path: "/",
-    name: "Home",
+    name: "Home"
   },
   {
     path: "/office",
-    name: "The Office",
+    name: "The Office"
   },
   {
     path: "/gallery",
     name: "The Gallery",
-    closed: true,
+    closed: true
   },
   {
     path: "/studio",
     name: "The Studio",
-    closed: true,
+    closed: true
   },
   {
     path: "/library",
     name: "The Library",
-    closed: true,
-  },
+    closed: true
+  }
 ];

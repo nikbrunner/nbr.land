@@ -5,12 +5,27 @@
 html,
 body {
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: var(--font-mono);
-  line-height: var(--font-lineheight-2);
+  --hue: 70;
+  --hue-active: 250;
+
+  --color-bg: oklch(90% 0.005 var(--hue));
+  --color-bg-support: oklch(70% 0.01 var(--hue));
+  --color-fg: oklch(35% 0.05 var(--hue));
+  --color-fg-active: oklch(65% 0.15 var(--hue-active));
+
+  --content-max-width: var(--size-content-3);
+  --font-family: JetBrains Mono, SF Mono, Source Code Pro, ui-monospace, monospace;
+
+  font-family: var(--font-family);
+  line-height: var(--font-lineheight-3);
   font-size: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,7 +40,7 @@ body {
 }
 
 h1 {
-  font-size: var(--font-size-5);
+  font-size: var(--font-size-4);
 }
 
 h2 {
@@ -33,11 +48,22 @@ h2 {
 }
 
 a {
-  color: var(--blue-6);
-  font-weight: var(--font-weight-7);
-  text-decoration-thickness: 0.1em;
+  color: var(--color-fg-support);
+  font-weight: var(--font-weight-6);
+  text-decoration-thickness: var(--border-size-2);
+  text-decoration-color: var(--color-fg-active);
 
   &:visited {
-    color: var(--blue-6);
+    color: var(--color-fg);
   }
+
+  &:hover {
+    color: var(--color-fg-active);
+  }
+}
+
+section {
+  max-inline-size: var(--content-max-width);
+  margin: 0 auto var(--size-6);
+  padding: var(--size-4) var(--size-3);
 }

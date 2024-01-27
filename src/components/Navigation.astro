@@ -1,25 +1,43 @@
 ---
 const { pathname } = Astro.url;
-export const isActivePath = (path: string) => pathname === path;
 
 const pathes = [
   {
     path: "/",
-    label: "Home"
+    label: "Work"
   },
   {
-    path: "/dev",
-    label: "Dev"
+    path: "/personal",
+    label: "Personal"
   }
 ];
 ---
 
-<nav class="nav">
+<nav class="Navigation">
   {
-    pathes.map(path => (
-      <a href={path.path} class={`${isActivePath(path.path) ? "text-blue-500" : ""}`}>
-        {path.label}
-      </a>
-    ))
+    pathes.map(p => {
+      return (
+        <Fragment>
+          <a class:list={[{ match: pathname === p.path }]} href={p.path}>
+            {p.label}
+          </a>
+        </Fragment>
+      );
+    })
   }
 </nav>
+
+<style lang="scss">
+  .Navigation {
+    display: flex;
+    gap: var(--size-2);
+
+    a {
+      text-decoration: none;
+    }
+
+    a.match {
+      color: var(--color-fg-active);
+    }
+  }
+</style>
