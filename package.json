@@ -13,8 +13,7 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^7.0.2",
-    "astro": "^4.2.6",
-    "open-props": "^1.5.15"
+    "astro": "^4.2.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.19.1",
