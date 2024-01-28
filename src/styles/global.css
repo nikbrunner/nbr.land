@@ -26,14 +26,14 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  * {
-    box-sizing: border-box;
-  }
+body * {
+  box-sizing: border-box;
+}
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+body::-webkit-scrollbar {
+  display: none;
 }
 
 h1 {
@@ -51,14 +51,14 @@ a {
   text-decoration-thickness: var(--border-size-2);
   text-decoration-color: var(--color-fg-accent);
   text-underline-offset: var(--border-size-2);
+}
 
-  &:visited {
-    color: var(--color-fg);
-  }
+a:visited {
+  color: var(--color-fg);
+}
 
-  &:hover {
-    color: var(--color-fg-accent);
-  }
+a:hover {
+  color: var(--color-fg-accent);
 }
 
 section {
