@@ -46,16 +46,7 @@ h1 {
 
 h2 {
   font-size: var(--font-size-3);
-  margin-top: var(--size-7);
   padding-bottom: var(--size-1);
-  position: relative;
-
-  &::before {
-    content: "## ";
-    position: absolute;
-    left: -3ch;
-    color: var(--color-fg-accent);
-  }
 }
 
 a {
