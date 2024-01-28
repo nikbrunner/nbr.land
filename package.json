@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
   "dependencies": {
     "@astrojs/vercel": "^7.0.2",
@@ -16,7 +17,10 @@
     "open-props": "^1.5.15"
   },
   "devDependencies": {
-    "sass": "^1.66.1",
-    "prettier": "^3.2.4"
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "sass": "^1.66.1"
   }
 }
