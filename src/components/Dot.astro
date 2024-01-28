@@ -1,0 +1,9 @@
+---
+interface Props {
+    bg: string;
+}
+
+const { bg } = Astro.props;
+---
+
+<div class:list={[bg, "rounded-full", "size-8", "shadow-huez-800", "shadow-lg"]}></div>

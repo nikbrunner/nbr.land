@@ -20,7 +20,7 @@ const { title = "nbr.haus" } = Astro.props;
     </head>
     <body>
         <Header />
-        <main class="content">
+        <main class="container mx-auto px-4">
             <slot />
         </main>
         <Footer />
@@ -29,10 +29,4 @@ const { title = "nbr.haus" } = Astro.props;
 
 <style is:global>
     @import "../styles/global.css";
-</style>
-
-<style>
-    .content {
-        min-height: inherit;
-    }
 </style>
