@@ -20,7 +20,7 @@ body {
   --color-fg-accent: oklch(65% 0.25 var(--hue-active));
 
   --content-max-width: var(--size-content-3);
-  --font-family: JetBrains Mono, SF Mono, Source Code Pro, ui-monospace, monospace;
+  --font-family: sans-serif;
 
   font-family: var(--font-family);
   line-height: var(--font-lineheight-3);
