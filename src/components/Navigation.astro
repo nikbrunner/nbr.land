@@ -2,42 +2,42 @@
 const { pathname } = Astro.url;
 
 const pathes = [
-  {
-    path: "/",
-    label: "Work"
-  },
-  {
-    path: "/personal",
-    label: "Personal"
-  }
+    {
+        path: "/",
+        label: "Work"
+    },
+    {
+        path: "/personal",
+        label: "Personal"
+    }
 ];
 ---
 
 <nav class="Navigation">
-  {
-    pathes.map(p => {
-      return (
-        <Fragment>
-          <a class:list={[{ match: pathname === p.path }]} href={p.path}>
-            {p.label}
-          </a>
-        </Fragment>
-      );
-    })
-  }
+    {
+        pathes.map(p => {
+            return (
+                <Fragment>
+                    <a class:list={[{ match: pathname === p.path }]} href={p.path}>
+                        {p.label}
+                    </a>
+                </Fragment>
+            );
+        })
+    }
 </nav>
 
 <style>
-  .Navigation {
-    display: flex;
-    gap: var(--size-2);
-  }
+    .Navigation {
+        display: flex;
+        gap: var(--size-2);
+    }
 
-  .Navigation a {
-    text-decoration: none;
-  }
+    .Navigation a {
+        text-decoration: none;
+    }
 
-  .Navigation a.match {
-    color: var(--color-fg-accent);
-  }
+    .Navigation a.match {
+        color: var(--color-fg-accent);
+    }
 </style>

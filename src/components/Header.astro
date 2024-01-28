@@ -3,32 +3,32 @@ import Navigation from "./Navigation.astro";
 ---
 
 <header class="Header">
-  <div class="content">
-    <h1>nbr.haus</h1>
-    <Navigation />
-  </div>
+    <div class="content">
+        <h1>nbr.haus</h1>
+        <Navigation />
+    </div>
 </header>
 
 <style>
-  .Header {
-    border-bottom: var(--border-size-1) solid var(--color-fg-accent);
-    background-color: var(--color-bg);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+    .Header {
+        border-bottom: var(--border-size-1) solid var(--color-fg-accent);
+        background-color: var(--color-bg);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
 
-  .Header .content {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: var(--content-max-width);
-    padding: var(--size-4) var(--size-3);
-  }
+    .Header .content {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: var(--content-max-width);
+        padding: var(--size-4) var(--size-3);
+    }
 
-  h1 {
-    margin: 0;
-    font-weight: var(--font-weight-1);
-  }
+    h1 {
+        margin: 0;
+        font-weight: var(--font-weight-1);
+    }
 </style>
