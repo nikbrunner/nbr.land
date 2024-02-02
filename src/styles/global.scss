@@ -13,11 +13,13 @@ body {
   --hue: 70;
   --hue-active: 250;
 
-  --color-bg: oklch(90% 0.005 var(--hue));
-  --color-bg-support: oklch(70% 0.01 var(--hue));
+  --bg-main: oklch(90% 0.005 var(--hue));
+  --bg-support: oklch(70% 0.01 var(--hue));
 
-  --color-fg: oklch(35% 0.05 var(--hue));
-  --color-fg-accent: oklch(65% 0.25 var(--hue-active));
+  --fg-main: oklch(45% 0.05 var(--hue));
+  --fg-support: oklch(55% 0.01 var(--hue));
+  --fg-minor: oklch(75% 0.01 var(--hue-active));
+  --fg-accent: oklch(65% 0.1 var(--hue-active));
 
   --content-max-width: var(--size-content-3);
   --font-family: sans-serif;
@@ -25,8 +27,8 @@ body {
   font-family: var(--font-family);
   line-height: var(--font-lineheight-3);
   font-size: 100%;
-  background-color: var(--color-bg);
-  color: var(--color-fg);
+  background-color: var(--bg-main);
+  color: var(--fg-main);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,26 +44,28 @@ body {
 
 h1 {
   font-size: var(--font-size-4);
+  color: var(--fg-support);
 }
 
 h2 {
   font-size: var(--font-size-3);
   padding-bottom: var(--size-1);
+  color: var(--fg-minor);
 }
 
 a {
-  color: var(--color-fg-support);
-  font-weight: var(--font-weight-6);
+  color: var(--fg-main);
+  font-style: italic;
   text-decoration-thickness: var(--border-size-2);
-  text-decoration-color: var(--color-fg-accent);
+  text-decoration-color: var(--fg-accent);
   text-underline-offset: var(--border-size-2);
 
   &:visited {
-    color: var(--color-fg);
+    color: var(--fg-main);
   }
 
   &:hover {
-    color: var(--color-fg-accent);
+    color: var(--fg-accent);
   }
 }
 
