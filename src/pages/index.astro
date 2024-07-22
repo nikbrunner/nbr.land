@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import houseImage from "../assets/images/house.jpg";
+
+const experienceInYears = new Date().getFullYear() - 2020;
 ---
 
 <BaseLayout title="nbr.haus/work">
@@ -9,11 +11,14 @@ import houseImage from "../assets/images/house.jpg";
   </header>
 
   <section>
-    <h2>Currently</h2>
+    <h2>Current</h2>
     <p>
-      Since 2020, <a href="/personal">I</a> am employed as a Software Engineer at <a
-        href="https://bike.center">DealerCenter Digital</a
-      >. Although my primary area of focus is Frontend, I also handle Backend related tasks, lead
+        <a href="/personal">I</a> am a Software Engineer,
+        with {experienceInYears} years of experience currently working at
+        <a href="https://bike.center">DealerCenter Digital</a>.
+    </p>
+    <p>
+      Although my primary area of focus is Frontend, I also handle Backend related tasks, lead
       projects and mentor colleagues.
     </p>
 
