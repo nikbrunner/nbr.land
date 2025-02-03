@@ -1,11 +1,5 @@
-import { defineConfig } from "astro/config";
+// @ts-check
+import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-import vercel from "@astrojs/vercel/serverless";
-
-// https://astro.build/config
-export default defineConfig({
-  output: "server",
-  adapter: vercel(),
-  prefetch: true
-});
+export default defineConfig({});

@@ -1,91 +1,11 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import houseImage from "../assets/images/house.jpg";
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
 
-const experienceInYears = new Date().getFullYear() - 2020;
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<BaseLayout title="nbr.haus/work">
-  <header class="page-header">
-    <img class="house-image" src={houseImage.src} alt="House" />
-  </header>
-
-  <section>
-    <h2>Current</h2>
-    <p>
-        <a href="/personal">I</a> am a Software Engineer,
-        with {experienceInYears} years of experience currently working at
-        <a href="https://bike.center">DealerCenter Digital</a>.
-    </p>
-    <p>
-      Although my primary area of focus is Frontend, I also handle Backend related tasks, lead
-      projects and mentor colleagues.
-    </p>
-
-    <h2>Past</h2>
-    <p>
-      Prior to my current role, I worked at <a href="https://www.diva-e.com/de/">diva-e</a>, an
-      agency where I gained my first professional experience as a Frontend Developer.
-    </p>
-
-    <h2>Stack</h2>
-    <p>
-      My current technology stack involves tools such as <a href="https://reactjs.org"
-        >React with TypeScript</a
-      >, <a href="https://www.typescriptlang.org/">TypeScript</a> itself, <a
-        href="https://sass-lang.com">SCSS</a
-      >, <a href="https://storybook.js.org/">StorybookJS</a> along with <a
-        href="https://nodejs.org/en/">NodeJS with TypeScript</a
-      >.
-    </p>
-
-    <p>
-      During my spare time, I explore other languages, technologies and frameworks. This website is
-      built with <a href="https://astro.build/">Astro</a> for example.
-    </p>
-
-    <h2>Tools</h2>
-    <p>
-      Not that it matters much, but my preferred editor is <a
-        href="https://github.com/nikbrunner/vin">Neovim</a
-      > combined with <a href="https://github.com/tmux/tmux/wiki">TMUX</a>
-      , but I am also very proficient with <a href="https://code.visualstudio.com/">VSCode</a> and <a
-        href="https://www.jetbrains.com/webstorm/">WebStorm</a
-      >. My terminal of choice is <a href="https://wezfurlong.org/wezterm/">Wezterm</a>.
-    </p>
-
-    <h2>Connect</h2>
-    <p>
-      For info about what am I working on publicly you can visit my <a href="https://www.github.com/nikbrunner">GitHub</a> profile.
-      If you wish to contact me, feel free to drop me an <a
-        href="mailto:nikolaus.brunner@protonmail.ch">Email</a
-      >, or connect with me on <a href="https://www.linkedin.com/in/nbru/">LinkedIn</a> or <a
-        href="https://www.xing.com/profile/Nikolaus_Brunner4">Xing</a
-      >.
-    </p>
-  </section>
-</BaseLayout>
-
-<style>
-  .page-header {
-    position: relative;
-
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--fg-accent);
-      opacity: 0.05;
-    }
-  }
-
-  .house-image {
-    width: 100%;
-    height: 40vh;
-    object-fit: cover;
-    display: block;
-  }
-</style>
+<Layout>
+    <Welcome />
+</Layout>

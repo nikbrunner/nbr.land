@@ -1,26 +1,18 @@
 {
-  "name": "nbr-haus",
+  "name": "nbr.haus",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier --write .",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+    "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^7.0.2",
-    "astro": "^4.2.6",
-    "open-props": "^1.5.15"
+    "astro": "^5.2.3"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "prettier": "^3.2.4",
-    "sass": "^1.66.1"
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
