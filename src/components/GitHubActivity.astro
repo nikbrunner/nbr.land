@@ -1,0 +1,60 @@
+---
+// https://api.github.com/
+// https://github.com/octokit/types.ts?tab=readme-ov-file
+// https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-the-authenticated-user
+
+let events = [];
+try {
+    const response = await fetch(
+        "https://api.github.com/users/nikbrunner/events",
+    );
+
+    if (response.status !== 200) {
+        console.error("ERROR:", response.statusText);
+    } else {
+        events = await response.json();
+    }
+} catch (error) {
+    console.error("Error fetching GitHub events:", error);
+}
+---
+
+<h2>Activity</h2>
+<ul>
+    {
+        events.map((evt) => {
+            return (
+                <li>
+                    {evt.type} - {evt.repo.name} -{" "}
+                    {new Date(evt.created_at).toISOString()}
+                    {evt.type === "PushEvent" && (
+                        <ul>
+                            {evt.payload.commits.map((c) => {
+                                return (
+                                    <code>
+                                        {c.message.split("\n").map((line) => (
+                                            <>
+                                                {line}
+                                                <br />
+                                            </>
+                                        ))}
+                                    </code>
+                                );
+                            })}
+                        </ul>
+                    )}
+                </li>
+            );
+        })
+    }
+</ul>
+
+<style>
+    ul {
+        list-style-type: none;
+    }
+
+    ul > li {
+        margin-bottom: 1em;
+    }
+</style>
