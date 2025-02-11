@@ -1,5 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getGitHubUser } from "../lib/github";
+
+const { data: nikbrunner } = await getGitHubUser();
 ---
 
-<Layout>Welcome</Layout>
+<Layout>
+    <img class="h-32" src={nikbrunner?.avatar_url} />
+
+    Hi.
+</Layout>

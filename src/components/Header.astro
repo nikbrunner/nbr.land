@@ -2,10 +2,10 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<div class="flex justify-between items-center p-5">
+<div class="flex justify-between items-center p-8">
     <a href="/" class="no-underline">
         <h1 class="m-0">
-            <span class="text-slate-600">nbr</span><span class="text-orange-400"
+            <span class="text-slate-400">nbr</span><span class="text-orange-400"
                 >.haus</span
             >
         </h1>
@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname;
             class:list={[
                 currentPath === "/office"
                     ? "text-orange-400"
-                    : "text-slate-600",
+                    : "text-slate-400",
                 "hover:text-orange-400",
             ]}
         >

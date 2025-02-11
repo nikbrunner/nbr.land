@@ -15,7 +15,7 @@ const { data: events, error: eventsError } = await getGithubPushEvents();
                 <span class="text-orange-400">{nikbrunner?.name}</span>
             </h2>
 
-            <ul class="list-none">
+            <ul class="list-none text-xs">
                 {events.map((evt) => (
                     <li class="mb-5">
                         <span class="text-orange-400 font-bold">
