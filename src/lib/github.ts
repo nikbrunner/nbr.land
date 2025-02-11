@@ -1,7 +1,11 @@
 import { Octokit } from "@octokit/rest";
 import type { GitHubEvent } from "../types/github";
 
-export const getGithubUserEvents = async (username: string = "nikbrunner") => {
+/** Currently on return push events */
+export const getGithubPushEvents = async (
+  username: string = "nikbrunner",
+  limit: number = 25,
+) => {
   try {
     const octokit = new Octokit({
       auth: import.meta.env.GITHUB_TOKEN,
@@ -9,10 +13,21 @@ export const getGithubUserEvents = async (username: string = "nikbrunner") => {
 
     const { data } = (await octokit.activity.listPublicEventsForUser({
       username,
-      per_page: 10, // Limit the number of events if needed
+      per_page: limit,
     })) as unknown as { data: GitHubEvent[] };
 
-    return { data, error: null };
+    const pushEvents = data.filter((event) => event.type === "PushEvent");
+
+    const uniqueEvents = pushEvents.filter(
+      (event, index, self) =>
+        index ===
+        self.findIndex(
+          (e) =>
+            e.payload.commits[0].message === event.payload.commits[0].message,
+        ),
+    );
+
+    return { data: uniqueEvents, error: null };
   } catch (error) {
     console.error("Error fetching GitHub events:", error);
     return {

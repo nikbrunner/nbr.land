@@ -1,8 +1,8 @@
 ---
-import { getGitHubUser, getGithubUserEvents } from "../lib/github";
+import { getGitHubUser, getGithubPushEvents } from "../lib/github";
 
 const { data: nikbrunner, error: nikbrunnerError } = await getGitHubUser();
-const { data: events, error: eventsError } = await getGithubUserEvents();
+const { data: events, error: eventsError } = await getGithubPushEvents();
 ---
 
 {
