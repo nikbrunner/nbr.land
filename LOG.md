@@ -9,5 +9,5 @@
 - [x] Fix typing for Github Activity
 - [x] Add Tailwind for styling
 - [x] Remove duplicates from Activity
-- [ ] Add headder
-- [ ] Add basic routing
+- [x] Add headder
+- [x] Add basic routing
