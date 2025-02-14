@@ -11,28 +11,25 @@ const { data: events, error: eventsError } = await getGithubPushEvents();
     ) : (
         <>
             <h2>
-                Activity of{" "}
-                <span class="text-orange-400">{nikbrunner?.name}</span>
+                Activity of <span class="text-orange-400">{nikbrunner?.name}</span>
             </h2>
 
             <ul class="list-none text-xs">
-                {events.map((evt) => (
+                {events.map(evt => (
                     <li class="mb-5">
                         <span class="text-orange-400 font-bold">
                             {evt.type} - {evt.repo.name} - {evt.created_at}
                         </span>
                         {evt.type === "PushEvent" && (
                             <ul>
-                                {evt.payload.commits?.map((commit) => (
+                                {evt.payload.commits?.map(commit => (
                                     <code>
-                                        {commit.message
-                                            .split("\n")
-                                            .map((line) => (
-                                                <>
-                                                    {line}
-                                                    <br />
-                                                </>
-                                            ))}
+                                        {commit.message.split("\n").map(line => (
+                                            <>
+                                                {line}
+                                                <br />
+                                            </>
+                                        ))}
                                     </code>
                                 ))}
                             </ul>
